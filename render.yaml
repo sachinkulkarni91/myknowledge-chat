@@ -1,0 +1,38 @@
+# Render Blueprint. In Render: New > Blueprint, pick this repository.
+# After the first sync, fill the "sync: false" values and upload the secret file (see README).
+services:
+  - type: web
+    name: myknowledge-chat
+    runtime: python
+    region: singapore
+    plan: free
+    numInstances: 1  # sessions live in memory; more instances need a shared store
+    buildCommand: pip install -r requirements.txt
+    startCommand: bash render_start.sh
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.5
+      - key: TENANT_ID
+        value: 29034800-5f6e-4317-9a5b-23b1e1b985bf
+      - key: CLIENT_ID
+        value: 191ed9e4-cda5-4978-918c-333acd11feda
+      - key: ENVIRONMENT_ID
+        value: 1df61fa7-e8c3-e4f7-be8a-2751e060fb0e
+      - key: AGENT_SCHEMA_NAME
+        value: craf4_MyKnowledgeAILabBuild
+      - key: TOKEN_SCOPE
+        value: https://api.powerplatform.com/.default
+      - key: TOKEN_CACHE_PATH
+        value: ./.secrets/msal_cache.bin
+      - key: MOCK_AGENT
+        value: "false"
+      - key: ENABLE_DOCS
+        value: "false"
+      - key: REQUIRE_APP_PASSWORD
+        value: "true"
+      - key: SERVICE_ACCOUNT_USERNAME
+        sync: false
+      - key: APP_PASSWORD
+        sync: false

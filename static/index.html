@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>MyKnowledge</title>
+  <link rel="preload" href="/static/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/static/chat.css">
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <h1>MyKnowledge</h1>
+      <button type="button" id="new-conversation" class="link-button">New conversation</button>
+      <p>Ask a question. Every answer lists the passages it comes from.</p>
+    </header>
+
+    <main id="log" class="transcript" aria-live="polite" aria-label="Conversation">
+      <noscript><p class="notice error">This page needs JavaScript to run.</p></noscript>
+    </main>
+
+    <form id="composer" class="composer" autocomplete="off">
+      <label for="question" class="sr-only">Your question</label>
+      <textarea id="question" rows="1" maxlength="2000" placeholder="Ask a question" disabled></textarea>
+      <button id="send" class="primary" type="submit" disabled>Ask</button>
+    </form>
+  </div>
+
+  <script src="/static/vendor/marked.umd.js"></script>
+  <script src="/static/vendor/purify.min.js"></script>
+  <script src="/static/chat.js"></script>
+</body>
+</html>

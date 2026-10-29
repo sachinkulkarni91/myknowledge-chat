@@ -1,0 +1,7 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+msal>=1.31
+microsoft-agents-copilotstudio-client>=1.9,<2
+microsoft-agents-activity>=1.9,<2
+aiohttp>=3.9
+python-dotenv>=1.0

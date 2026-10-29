@@ -1,0 +1,14 @@
+# Secrets and local config
+.env
+.secrets/
+*.bin
+.local_token_cache.json
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local editor/agent settings
+.claude/
