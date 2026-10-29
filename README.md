@@ -50,7 +50,8 @@ revoked by the tenant's policies.
 
 Render gives every web service a public URL, so the deployment is kept private with one shared password
 (`APP_PASSWORD`). The browser asks for it once; any username works. Only `/healthz` is open, for Render's health
-check. `REQUIRE_APP_PASSWORD=true` makes the server refuse to start without a password, and Swagger stays off.
+check. `REQUIRE_APP_PASSWORD=true` makes the server refuse to start without a password. Swagger UI is on at `/docs`,
+behind the same password.
 
 1. Push this folder to a **private** GitHub repository. `.env`, `.secrets/` and `.venv/` are git-ignored; check
    `git status` shows none of them before pushing.

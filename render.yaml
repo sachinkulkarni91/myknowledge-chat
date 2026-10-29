@@ -28,8 +28,8 @@ services:
         value: ./.secrets/msal_cache.bin
       - key: MOCK_AGENT
         value: "false"
-      - key: ENABLE_DOCS
-        value: "false"
+      - key: ENABLE_DOCS  # Swagger at /docs, behind APP_PASSWORD like everything else
+        value: "true"
       - key: REQUIRE_APP_PASSWORD
         value: "true"
       - key: SERVICE_ACCOUNT_USERNAME
