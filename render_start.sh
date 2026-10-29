@@ -17,4 +17,5 @@ if [ ! -f "$CACHE_PATH" ]; then
 fi
 chmod 600 "$CACHE_PATH"
 
-exec uvicorn app.main:app --host 0.0.0.0 --port "${PORT:-10000}" --proxy-headers --forwarded-allow-ips '*'
+export FORWARDED_ALLOW_IPS="${FORWARDED_ALLOW_IPS:-*}"  # trust Render's proxy for client IP and https
+exec uvicorn app.main:app --host 0.0.0.0 --port "${PORT:-10000}" --proxy-headers

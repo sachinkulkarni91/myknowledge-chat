@@ -3,6 +3,9 @@
   'use strict';
 
   const $ = (id) => document.getElementById(id);
+  // Absolute URLs from the origin: fetch() rejects relative URLs when the page was opened
+  // with credentials in its address (https://user:password@host/).
+  const api = (path) => new URL(path, window.location.origin).href;
   const log = $('log');
   const form = $('composer');
   const input = $('question');
@@ -200,7 +203,7 @@
   // ---- talking to the server ---------------------------------------------------
 
   async function startSession() {
-    const res = await fetch('/api/chat/start', { method: 'POST' });
+    const res = await fetch(api('/api/chat/start'), { method: 'POST' });
     if (!res.ok) throw new Error(await readDetail(res));
     const data = await res.json();
     sessionId = data.session_id;
@@ -285,7 +288,7 @@
     updateControls();
 
     try {
-      const res = await fetch('/api/chat/message', {
+      const res = await fetch(api('/api/chat/message'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ session_id: sessionId, text }),
