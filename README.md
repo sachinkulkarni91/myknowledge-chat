@@ -1,4 +1,4 @@
-# MyKnowledge chat
+# MyKnowledge chat Backend
 
 A small web app that lets visitors chat with the MyKnowledge agent (Copilot Studio) from a custom page.
 
